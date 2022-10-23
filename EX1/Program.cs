@@ -1,43 +1,23 @@
-﻿// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
-// [345, 897, 568, 234] -> 2
+﻿// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+// 3, 5 -> 243 (3⁵)
+// 2, 4 -> 16
 
-int[] CreateArrayRndInt(int size, int min, int max)
+Console.Write("Введите число: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите cтепень: ");
+int b = Convert.ToInt32(Console.ReadLine());
+
+int RaisingDegree(int number, int degree)
 {
+    int res = 1;
 
-    int[] array = new int[size];
-    var rnd = new Random();
-    for (int i = 0; i < size; i++)
+    for (int i = 1; i <= degree; i++)
     {
-        array[i] = rnd.Next(min, max + 1);
+        res = res * number;
     }
-    return array;
+
+    return res;
 }
 
-int Count(int[] array)
-{
-    int count = default;
-    
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] % 2 == 0) count++;
-    }
-    
-    return count;
-}
-
-void PrintArray(int[] array)
-{
-    Console.Write("[");
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (i < array.Length - 1) Console.Write($"{array[i]}, "); 
-        else Console.Write($"{array[i]}");
-    }
-    Console.WriteLine("]");
-}   
-
-int[] arr = CreateArrayRndInt(4, 100, 1000); 
-PrintArray(arr);
-int count = Count(arr);
-
-Console.Write($"Колличество четных числел = {count}");
+int raisingDegree = RaisingDegree(a, b);
+Console.WriteLine($"Степень числа = {raisingDegree}");
