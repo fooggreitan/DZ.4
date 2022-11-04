@@ -9,7 +9,7 @@ int[] numbers = StringToNum(Console.ReadLine());
 
 int[] StringToNum(string input)
 {
-    // количество запятых
+    
     int count = 1;
     for (int i = 0; i < input.Length; i++)
     {
